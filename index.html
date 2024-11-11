@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCC</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        var conteudo = "teste"
+        var nomepessoa = "moço"
+        var mensagens = 0
+        function mensagem(){
+            const node = document.getElementById("msgplaceholder")
+            const clone = node.cloneNode(true)
+            mensagens += 1
+            clone.style.display = "flex"
+            clone.id = "mensagem"+mensagens
+            clone.childNodes[3].childNodes[3].innerHTML = conteudo
+            clone.childNodes[3].childNodes[1].innerHTML = nomepessoa
+            document.getElementById("main").appendChild(clone)
+        }
+        function teste(){
+            conteudo = window.prompt('Digite sua mensagem')
+            mensagem()
+        }
+        function teste2(){
+            nomepessoa = window.prompt('Escolha um nome')
+        }
+    </script>
+</head>
+<body id="body">
+    <header class="barratopo" id="header">
+            <!--<img src="Imagens/icon.png" class="logo">-->
+            <marquee behavior="alternate">Placeholder</marquee>
+    </header>
+    <main id="main">
+
+        <div class="mensagem" id="msgplaceholder">
+            <img src="Imagens/moço.png"> 
+            <div id="usuario">       
+                <p id="nomenamensagem">Moço</p>      
+                <p id="conteudomensagem">teste teste teste teste teste teste teste teste teste </p>
+        </div>
+        </div>
+        <br><br><br><br>
+        <button onclick="teste()">botão de teste pra enviar mensagens</button>
+        <button onclick="teste2()">botão de teste pra definir nome</button>
+    </main>
+    <br><br><br><br>
+    <footer class="barrafundo" id="footer">
+        <!--<img src="Imagens/icon.png" class="logo">-->
+    </footer>
+</body>
+</html>

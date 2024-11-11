@@ -1,0 +1,66 @@
+body{
+    font-family: 'Segoe UI', Arial;
+    font-size: 17px;
+    text-align: center;
+    background-color: darkgray;
+}
+
+.barratopo{
+    background-color: #90ee90;
+    overflow: hidden;
+    border-bottom: 0.2rem solid #008000;
+    width: 100%;
+    height: 60px;
+    justify-content: center;
+    position:fixed;
+    top: 0;
+}
+
+.barrafundo{
+    background-color: #90ee90;
+    overflow: hidden;
+    border-top: 0.2rem solid #008000;
+    width: 100%;
+    height: 60px;
+    justify-content: center;
+    position:fixed;
+    bottom: 0;
+}
+
+marquee{
+    font-size: 50px;
+}
+
+main{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.mensagem{
+    text-align: left;
+    display: none;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+
+.mensagem>img{
+    width: 50px;
+    height: 50px;
+}
+#nomenamensagem{
+    padding: 0;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+#conteudomensagem{
+    max-width: 400px;
+    margin-top: 10px;
+}
+
+#conteudomensagem>p{
+    line-break:auto;
+}
