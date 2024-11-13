@@ -27,6 +27,31 @@ body{
     bottom: 0;
 }
 
+form>*{
+border: 0.2rem solid black;
+position: fixed;
+font-size: 20px;
+}
+
+#escrevermsg{
+margin-left: 1%;
+height: 5%;
+margin-top: 7px;
+width: 88%;
+left: 0;
+background-color: gray;
+
+}
+
+#enviarmsg{
+    right: 0;
+    margin-top: 10px;
+    height: 5%;
+    margin-right: 1%;
+    width: 8%;
+    border-radius: 10px;
+}
+
 marquee{
     font-size: 50px;
 }
@@ -64,3 +89,4 @@ main{
 #conteudomensagem>p{
     line-break:auto;
 }
+

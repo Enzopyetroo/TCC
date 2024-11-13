@@ -10,13 +10,13 @@
         var conteudo = "teste"
         var nomepessoa = "moço"
         var mensagens = 0
-        function mensagem(){
+        function mensagem(msg){
             const node = document.getElementById("msgplaceholder")
             const clone = node.cloneNode(true)
             mensagens += 1
             clone.style.display = "flex"
             clone.id = "mensagem"+mensagens
-            clone.childNodes[3].childNodes[3].innerHTML = conteudo
+            clone.childNodes[3].childNodes[3].innerHTML = msg
             clone.childNodes[3].childNodes[1].innerHTML = nomepessoa
             document.getElementById("main").appendChild(clone)
         }
@@ -44,12 +44,24 @@
         </div>
         </div>
         <br><br><br><br>
-        <button onclick="teste()">botão de teste pra enviar mensagens</button>
+        <!--<button onclick="teste()">botão de teste pra enviar mensagens</button>-->
         <button onclick="teste2()">botão de teste pra definir nome</button>
     </main>
     <br><br><br><br>
     <footer class="barrafundo" id="footer">
-        <!--<img src="Imagens/icon.png" class="logo">-->
+        <form id="form" method="post">
+        <input type="text" id="escrevermsg" name="escrevermsg" placeholder="Enviar mensagem...">
+        <input type="button" id="enviarmsg" value="Enviar" onclick="EnviouMsg(this.form)">
+        </form>
     </footer>
+    <script>
+        function EnviouMsg(form){
+        var inputValue = form.escrevermsg.value;
+        if (inputValue != ""){
+            mensagem(inputValue)
+            document.getElementById("form").reset();
+        }
+        }
+    </script>
 </body>
 </html>
