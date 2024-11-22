@@ -20,12 +20,17 @@
             clone.childNodes[3].childNodes[1].innerHTML = nomepessoa
             document.getElementById("main").appendChild(clone)
         }
+
         function teste(){
-            conteudo = window.prompt('Digite sua mensagem')
-            mensagem()
+            nomepessoa = window.prompt('Escolha um nome')
         }
+
         function teste2(){
             nomepessoa = window.prompt('Escolha um nome')
+        }
+        function inputToURL(inputElement){
+            var file = inputElement.files[0];
+            document.getElementById("pfp").src = window.URL.createObjectURL(file)
         }
     </script>
 </head>
@@ -37,27 +42,36 @@
     <main id="main">
 
         <div class="mensagem" id="msgplaceholder">
-            <img src="Imagens/moço.png"> 
+            <img src="Imagens/moço.png" id="pfp"> 
             <div id="usuario">       
                 <p id="nomenamensagem">Moço</p>      
                 <p id="conteudomensagem">teste teste teste teste teste teste teste teste teste </p>
         </div>
         </div>
         <br><br><br><br>
-        <!--<button onclick="teste()">botão de teste pra enviar mensagens</button>-->
-        <button onclick="teste2()">botão de teste pra definir nome</button>
+
+        <br><button onclick="teste()">botão de teste pra definir nome</button>
+        <br><br><label>Definir foto</label>
+        <br><input type="file" id="myfile" name="myfile" onchange="inputToURL(this)">
+        <button onclick="document.getElementById('pfp').src = 'Imagens/moço.png'">Remover foto</button>
     </main>
     <br><br><br><br>
-    <footer class="barrafundo" id="footer">
+    <footer class="barrafundo" id="footer" onsubmit="return false">
         <form id="form" method="post">
         <input type="text" id="escrevermsg" name="escrevermsg" placeholder="Enviar mensagem...">
-        <input type="button" id="enviarmsg" value="Enviar" onclick="EnviouMsg(this.form)">
+        <input type="image" src="Imagens/enviar.png" id="enviarmsg" value="Enviar" onclick="EnviouMsg(this.form)">
         </form>
     </footer>
     <script>
         function EnviouMsg(form){
+        var podeEnviar = false
         var inputValue = form.escrevermsg.value;
-        if (inputValue != ""){
+        for (var i = 0; i < inputValue.length; i++) {
+         if (inputValue.charAt(i) != " "){
+            podeEnviar = true
+         } 
+        }
+        if (podeEnviar == true){
             mensagem(inputValue)
             document.getElementById("form").reset();
         }
